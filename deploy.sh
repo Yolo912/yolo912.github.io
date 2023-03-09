@@ -4,21 +4,22 @@
 set -e
 
 
-push_addr=`git@github.com:Yolo912/yolo912.github.io.git` # git提交地址，也可以手动设置，比如：push_addr=git@github.com:xugaoyi/vuepress-theme-vdoing.git
-commit_info=`git describe --all --always --long`
-dist_path=docs/.vuepress/dist # 打包生成的文件夹路径
-push_branch=gh-pages # 推送的分支
-
 # 生成静态文件
 npm run build
 
 # 进入生成的文件夹
-cd $dist_path
+cd docs/.vuepress/dist
 
+
+# git commit
 git init
 git add -A
-git commit -m "deploy, $commit_info"
-git push -f $push_addr HEAD:$push_branch
+git commit -m "deploy"
 
+# deploy to github
+git push -f git@github.com:Yolo912/yolo912.github.io.git master:gh-pages # 推送到github
+
+# 退回开始所在目录
 cd -
-rm -rf $dist_path
+# 删除 dist
+rm -rf docs/.vuepress/dist

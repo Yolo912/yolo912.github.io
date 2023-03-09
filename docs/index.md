@@ -1,7 +1,6 @@
 ---
 home: true
 heroImage: /img/logo.png
-heroText: yolo912doc
 tagline: 文档博客
 actionText: 开始使用 →
 actionLink: /pages/a2f161/
